@@ -1,3 +1,5 @@
+import { Geo } from './geo'
+
 export default function Home() {
   return (
     <main className='mx-auto min-h-screen max-w-4xl border-x border-gray-100 bg-gray-50/40 px-8 py-12'>
@@ -14,6 +16,8 @@ export default function Home() {
         <li>Or get your current location</li>
         <li>Done</li>
       </ol>
+
+      <Geo />
     </main>
   )
 }
