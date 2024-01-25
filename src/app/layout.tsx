@@ -1,8 +1,12 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import Link from 'next/link'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '600', '800', '900'],
+})
 
 export const metadata: Metadata = {
   title: 'Calendar for prayer times',
@@ -16,7 +20,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className + '  min-h-screen'}>
+        <header>
+          <div className='container mx-auto px-8 py-4'>
+            <nav className='flex gap-4'>
+              <Link className='underline-offset-4 hover:underline' href='/'>
+                Home
+              </Link>
+              <Link
+                className='underline-offset-4 hover:underline'
+                href='/create-event'
+              >
+                Create event
+              </Link>
+            </nav>
+          </div>
+        </header>
+
+        {children}
+      </body>
     </html>
   )
 }

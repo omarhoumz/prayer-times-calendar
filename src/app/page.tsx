@@ -2,7 +2,7 @@ import { Geo } from './geo'
 
 export default function Home() {
   return (
-    <main className='mx-auto min-h-screen max-w-4xl border-x border-gray-100 bg-gray-50/40 px-8 py-12'>
+    <main className='container mx-auto px-8 py-12'>
       <h1 className='mb-3 text-2xl'>
         Connect your calendar to your prayer times
       </h1>
