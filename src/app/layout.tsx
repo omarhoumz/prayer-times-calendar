@@ -2,10 +2,11 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import Link from 'next/link'
 import './globals.css'
+import AuthButton from './auth-button'
 
 const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '600', '800', '900'],
+  weight: ['400', '500', '600', '800', '900'],
 })
 
 export const metadata: Metadata = {
@@ -22,7 +23,7 @@ export default function RootLayout({
     <html lang='en'>
       <body className={inter.className + '  min-h-screen'}>
         <header>
-          <div className='container mx-auto px-8 py-4'>
+          <div className='container mx-auto flex justify-between gap-4 px-8 py-4'>
             <nav className='flex gap-4'>
               <Link className='underline-offset-4 hover:underline' href='/'>
                 Home
@@ -34,6 +35,8 @@ export default function RootLayout({
                 Create event
               </Link>
             </nav>
+
+            <AuthButton />
           </div>
         </header>
 
