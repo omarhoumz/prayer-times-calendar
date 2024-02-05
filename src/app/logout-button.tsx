@@ -7,7 +7,7 @@ export function LogoutButton() {
 
   return (
     <button className='block min-w-[90px] text-end'>
-      {pending ? 'Login out' : 'Logout'}
+      {pending ? 'Login out ...' : 'Logout'}
     </button>
   )
 }

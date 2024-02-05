@@ -19,11 +19,12 @@ export function CustomFormSubmit({
   return (
     <button
       className={cn(
-        'block rounded bg-blue-500 px-4 py-2 text-white',
+        'block rounded bg-blue-500 px-4 py-2 text-white disabled:pointer-events-none disabled:opacity-40',
         className,
       )}
       type='submit'
       area-disabled={ariaDisabled}
+      disabled={ariaDisabled === 'true'}
     >
       {typeof children === 'function'
         ? children(pending)

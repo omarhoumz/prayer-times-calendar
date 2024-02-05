@@ -1,5 +1,6 @@
 import { revalidatePath } from 'next/cache'
 import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation'
 
 import { createClient } from '~/utils/supabase/server'
 
@@ -79,6 +80,19 @@ export function createCalendarEvent({
         }),
       },
     ).then((res) => res.json())
+
+    const { error } = eventData
+
+    if (error) {
+      let message = error.message
+      if (error.code === 401) {
+        supabase.auth.signOut()
+        message = 'Invalid Google OAuth credentials'
+
+        redirect('/login')
+      }
+      throw new Error(message)
+    }
 
     revalidatePath('/create-event')
   }
